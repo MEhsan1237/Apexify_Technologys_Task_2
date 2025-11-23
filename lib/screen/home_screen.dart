@@ -33,44 +33,52 @@ class _HomeScreenState extends State<HomeScreen> {
               controller.allQuotes[controller.initialNumber.value]['author']!;
           final quoteShow =
               controller.allQuotes[controller.initialNumber.value]['quote']!;
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '"$authorShow"',
-                  style: TextStyle(
-                    color: Colors.deepPurple,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
+          return AnimatedOpacity(
+
+            opacity: controller.opacityNumber.value    ,
+            duration: Duration(milliseconds: 900),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50.0,vertical: 110),
+              child: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Spacer(),
+                    Text(
+                      authorShow,
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    Text(
+                      quoteShow,textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    SizedBox(height: 70),
+                    ElevatedButton(
+                      onPressed: () {
+                        controller.setQuotesFun();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepPurple,
+                        elevation: 2,
+                        shape: StadiumBorder(),
+                      ),
+                      child: Center(
+                        child: Text("Next", style: TextStyle(color: Colors.white,fontSize: 20)),
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(height: 20,),
-                Text(
-                  '"$quoteShow"',textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-                SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: () {
-                    controller.setQuotesFun();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple,
-                    elevation: 2,
-                    shape: StadiumBorder(),
-                  ),
-                  child: Center(
-                    child: Text("Next", style: TextStyle(color: Colors.white,fontSize: 20)),
-                  ),
-                ),
-              ],
+              ),
             ),
           );
         }),
