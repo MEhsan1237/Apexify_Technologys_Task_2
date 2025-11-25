@@ -1,12 +1,25 @@
-
-
 import 'dart:math';
-
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class QuotesController extends GetxController{
+class QuotesController extends GetxController {
   RxInt initialNumber = 0.obs;
-  RxDouble opacityNumber = 1.0.obs ;
+  RxDouble opacityNumber = 1.0.obs;
+
+  RxBool isDark = false.obs;
+  RxInt selectedOption = 1.obs; // 1 = light, 2 = dark
+
+  void toggleThemeFromRadio(int val) {
+    selectedOption.value = val;
+    isDark.value = val == 2; // 2 = dark theme
+
+    if (isDark.value) {
+      Get.changeTheme(ThemeData.dark());
+    } else {
+      Get.changeTheme(ThemeData.light());
+    }
+  }
+
   List<Map<String,String>> allQuotes = [
     {
       "author": "Albert Einstein",
@@ -60,7 +73,6 @@ class QuotesController extends GetxController{
       "author": "C.S. Lewis",
       "quote": "🔥Hardships often prepare ordinary people for an extraordinary destiny.🔥"
     },
-
     {
       "author": "Mark Twain",
       "quote": "🔥The secret of getting ahead is getting started.🔥"
@@ -96,7 +108,8 @@ class QuotesController extends GetxController{
     {
       "author": "William Shakespeare",
       "quote": "💫We know what we are, but know not what we may be.💫"
-    },{
+    },
+    {
       "author": "Stephen King",
       "quote": "💫Books are a uniquely portable magic.💫"
     },
@@ -169,16 +182,18 @@ class QuotesController extends GetxController{
       "quote": "🌸For last year’s words belong to last year’s language,And next year’s words await another voice.To make an end is to make a beginning.The end is where we start from.🌸"
     }
   ];
-  void setQuotesFun()async{
+  void setQuotesFun() async {
     opacityNumber.value = 0.0;
-    await Future.delayed(Duration(milliseconds:  900),(){ final random = Random();
-    initialNumber.value =
-        random.nextInt(allQuotes.length);},
+    await Future.delayed(Duration(milliseconds: 900), () {
+      final random = Random();
+      initialNumber.value = random.nextInt(allQuotes.length);
+    });
 
-
-    );
     opacityNumber.value = 1.0;
 
   }
-
 }
+
+
+
+

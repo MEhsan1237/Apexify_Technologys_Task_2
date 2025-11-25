@@ -4,84 +4,97 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  final QuotesController controller = Get.put(QuotesController());
+  final QuotesController controller = Get.find<QuotesController>();
 
   @override
   Widget build(BuildContext context) {
+    if (kDebugMode) print("HomeScreen Build → This should print only ONCE");
 
     return Scaffold(
-
       appBar: AppBar(
-        title: Text("Quote App", style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600)),
+        title: Text("Quote App", style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.deepPurple,
         centerTitle: true,
       ),
-      body: Center(
-        child: Obx(() {
-          if (kDebugMode) {
-            print("Next Quote");
-          }
-          final authorShow =
-              controller.allQuotes[controller.initialNumber.value]['author']!;
-          final quoteShow =
-              controller.allQuotes[controller.initialNumber.value]['quote']!;
-          return AnimatedOpacity(
 
-            opacity: controller.opacityNumber.value    ,
-            duration: Duration(milliseconds: 900),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50.0,vertical: 110),
-              child: Center(
+      body: Padding(
+        padding: EdgeInsets.all(20),
+
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Obx(() {
+              return Column(
+                children: [
+                  RadioListTile<int>(
+                    title: Text("Light Theme"),
+                    value: 1,
+                    groupValue: controller.selectedOption.value,
+                    onChanged: (val) => controller.toggleThemeFromRadio(val!),
+                  ),
+                  RadioListTile<int>(
+                    title: Text("Dark Theme"),
+                    value: 2,
+                    groupValue: controller.selectedOption.value,
+                    onChanged: (val) => controller.toggleThemeFromRadio(val!),
+                  ),
+                ],
+              );
+            }),
+            SizedBox(height: 30),
+
+            // 🔥 Only QUOTE + BUTTON rebuild
+            Obx(() {
+              if (kDebugMode) print("Quote & Button Rebuild");
+
+              final author = controller
+                  .allQuotes[controller.initialNumber.value]['author']!;
+              final quote = controller
+                  .allQuotes[controller.initialNumber.value]['quote']!;
+
+              return AnimatedOpacity(
+                opacity: controller.opacityNumber.value,
+                duration: Duration(milliseconds: 900),
+
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Spacer(),
                     Text(
-                      '" $authorShow "',
-                      style: TextStyle(
-                        color: Colors.deepPurple,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      '" $author "',
+                      style: TextStyle(color: Colors.deepPurple, fontSize: 18),
+                      textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 20,),
+
+                    SizedBox(height: 10),
+
                     Text(
-                      quoteShow,textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900,
-                      ),
+                      quote,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
-                    SizedBox(height: 70),
+
+                    SizedBox(height: 25),
+
                     ElevatedButton(
-                      onPressed: () {
-                        controller.setQuotesFun();
-                      },
+                      onPressed: controller.setQuotesFun,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepPurple,
-                        elevation: 2,
-                        shape: StadiumBorder(),
+                        fixedSize: Size(180, 45),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
                       ),
-                      child: Center(
-                        child: Text("Next", style: TextStyle(color: Colors.white,fontSize: 20)),
-                      ),
+                      child: Text("Next", style: TextStyle(fontSize: 18)),
                     ),
                   ],
                 ),
-              ),
-            ),
-          );
-        }),
+              );
+            }),
+          ],
+        ),
       ),
     );
   }

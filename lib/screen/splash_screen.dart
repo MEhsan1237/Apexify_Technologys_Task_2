@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:apexify_technologys_quote_app/screen/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +15,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () async{
-      await Navigator.pushReplacement(
+    Timer(Duration(seconds: 3), ()  {
+        Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomeScreen()),
       );
@@ -24,6 +25,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (kDebugMode) {
+      print("hii brother");
+    }
     return
      Scaffold(
         body: Center(
