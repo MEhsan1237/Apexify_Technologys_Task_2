@@ -46,10 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Spacer(),
                     Text(
-                      authorShow,
+                      '" $authorShow "',
                       style: TextStyle(
                         color: Colors.deepPurple,
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
