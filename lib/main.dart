@@ -23,8 +23,12 @@ class MyApp extends StatelessWidget {
     return Obx(() {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData.light(),
-        darkTheme: ThemeData.dark(),
+        theme: ThemeData.light(
+
+        ),
+        darkTheme: ThemeData.dark(
+
+        ),
         themeMode: controller.isDark.value ? ThemeMode.dark : ThemeMode.light,
         home: SplashScreen(),
       );

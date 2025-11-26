@@ -9,6 +9,7 @@ class QuotesController extends GetxController {
   RxBool isDark = false.obs;
   RxInt selectedOption = 1.obs; // 1 = light, 2 = dark
 
+
   void toggleThemeFromRadio(int val) {
     selectedOption.value = val;
     isDark.value = val == 2; // 2 = dark theme
@@ -19,6 +20,7 @@ class QuotesController extends GetxController {
       Get.changeTheme(ThemeData.light());
     }
   }
+
 
   List<Map<String,String>> allQuotes = [
     {

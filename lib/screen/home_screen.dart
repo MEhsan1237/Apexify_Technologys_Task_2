@@ -21,25 +21,35 @@ class HomeScreen extends StatelessWidget {
       ),
 
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.symmetric(horizontal: 60),
 
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Obx(() {
-              return Column(
+              return Row(
                 children: [
-                  RadioListTile<int>(
-                    title: Text("Light Theme"),
-                    value: 1,
-                    groupValue: controller.selectedOption.value,
-                    onChanged: (val) => controller.toggleThemeFromRadio(val!),
+                  Expanded(
+                    child: RadioListTile<int>(
+                      title: Text("Light Theme"),
+                      shape: StadiumBorder(),
+
+                      value: 1,
+                      groupValue: controller.selectedOption.value,
+                      onChanged: (val) => controller.toggleThemeFromRadio(val!),
+                    ),
                   ),
-                  RadioListTile<int>(
-                    title: Text("Dark Theme"),
-                    value: 2,
-                    groupValue: controller.selectedOption.value,
-                    onChanged: (val) => controller.toggleThemeFromRadio(val!),
+                  SizedBox(width: 6,),
+                  Expanded(
+                    child: RadioListTile<int>(
+
+                      title: Text("Dark Theme"),
+                      shape: StadiumBorder(),
+
+                      value: 2,
+                      groupValue: controller.selectedOption.value,
+                      onChanged: (val) => controller.toggleThemeFromRadio(val!),
+                    ),
                   ),
                 ],
               );
@@ -73,10 +83,10 @@ class HomeScreen extends StatelessWidget {
                     Text(
                       quote,
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style:  controller.isDark.value?TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w600):TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600)
                     ),
 
-                    SizedBox(height: 25),
+                    SizedBox(height: 55),
 
                     ElevatedButton(
                       onPressed: controller.setQuotesFun,
@@ -87,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(25),
                         ),
                       ),
-                      child: Text("Next", style: TextStyle(fontSize: 18)),
+                      child: Text("Next",  style:  TextStyle(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 16)),
                     ),
                   ],
                 ),
