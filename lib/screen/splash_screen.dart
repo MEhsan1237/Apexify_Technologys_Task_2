@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-             Image(image: AssetImage("assets/images/read.jpg"),fit: BoxFit.cover,height: 190,width: 160,),
+             Image(image: AssetImage("assets/images/quote.jpg"),fit: BoxFit.cover,height: 190,width: 160,),
               Text(
                 "Find Your Daily Motivation",
                 style: TextStyle(

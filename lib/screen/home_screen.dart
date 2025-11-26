@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
@@ -39,10 +38,9 @@ class HomeScreen extends StatelessWidget {
                       onChanged: (val) => controller.toggleThemeFromRadio(val!),
                     ),
                   ),
-                  SizedBox(width: 6,),
+                  SizedBox(width: 6),
                   Expanded(
                     child: RadioListTile<int>(
-
                       title: Text("Dark Theme"),
                       shape: StadiumBorder(),
 
@@ -54,8 +52,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               );
             }),
-            SizedBox(height: 30),
-
+            SizedBox(height: 60,),
             // 🔥 Only QUOTE + BUTTON rebuild
             Obx(() {
               if (kDebugMode) print("Quote & Button Rebuild");
@@ -65,44 +62,65 @@ class HomeScreen extends StatelessWidget {
               final quote = controller
                   .allQuotes[controller.initialNumber.value]['quote']!;
 
-              return AnimatedOpacity(
-                opacity: controller.opacityNumber.value,
-                duration: Duration(milliseconds: 900),
+              return SizedBox(
+                height: 200,
+                child: AnimatedOpacity(
+                  opacity: controller.opacityNumber.value,
+                  duration: Duration(milliseconds: 900),
 
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      '" $author "',
-                      style: TextStyle(color: Colors.deepPurple, fontSize: 18),
-                      textAlign: TextAlign.center,
-                    ),
-
-                    SizedBox(height: 10),
-
-                    Text(
-                      quote,
-                      textAlign: TextAlign.center,
-                      style:  controller.isDark.value?TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w600):TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600)
-                    ),
-
-                    SizedBox(height: 55),
-
-                    ElevatedButton(
-                      onPressed: controller.setQuotesFun,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepPurple,
-                        fixedSize: Size(180, 45),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '" $author "',
+                        style: TextStyle(
+                          color: Colors.deepPurple,
+                          fontSize: 18,
                         ),
+                        textAlign: TextAlign.center,
                       ),
-                      child: Text("Next",  style:  TextStyle(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 16)),
-                    ),
-                  ],
+
+                      SizedBox(height: 18),
+
+                      Text(
+                        quote,
+                        textAlign: TextAlign.center,
+                        style: controller.isDark.value
+                            ? TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                              )
+                            : TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                              ),
+                      ),
+                    ],
+                  ),
                 ),
               );
             }),
+            SizedBox(height: 30,),
+            ElevatedButton(
+              onPressed: controller.setQuotesFun,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepPurple,
+                fixedSize: Size(180, 45),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+              ),
+              child: Text(
+                "Next",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                ),
+              ),
+            ),
           ],
         ),
       ),
