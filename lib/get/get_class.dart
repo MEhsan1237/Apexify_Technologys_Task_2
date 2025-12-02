@@ -182,6 +182,86 @@ class QuotesController extends GetxController {
     {
       "author": "T. S. Eliot",
       "quote": "🌸For last year’s words belong to last year’s language,And next year’s words await another voice.To make an end is to make a beginning.The end is where we start from.🌸"
+    },
+    {
+      "author": "Emily Brontë",
+      "quote": "🌺Whatever our souls are made of, his and mine are the same.In every quiet moment, I find his presence in mine.🌺"
+    },
+    {
+      "author": "Kahlil Gibran",
+      "quote": "🥀Your children are not your children.They are the sons and daughters of Life's longing for itself.You may give them your love but not your thoughts.🥀"
+    },
+    {
+      "author": "Jane Austen",
+      "quote": "🥀There is no charm equal to tenderness of heart.Kindness and patience make life beautiful in ways riches cannot.🥀"
+    },
+    {
+      "author": "Victor Hugo",
+      "quote": "🥀Even the darkest night will end and the sun will rise.Hope is the light that never fades.🥀"
+    },
+    {
+      "author": "Rainer Maria Rilke",
+      "quote": "🌹Be patient toward all that is unsolved in your heart and try to love the questions themselves.🌹"
+    },
+    {
+      "author": "Virginia Woolf",
+      "quote": "🌹Lock up your libraries if you like;But there is no gate, no lock, no bolt that you can set upon the freedom of my mind.🌹"
+    },
+    {
+      "author": "Paulo Coelho",
+      "quote": "🌹When you want something, all the universe conspires in helping you to achieve it.Your dreams are never unreachable if you believe.🌹"
+    },
+    {
+      "author": "Carl Jung",
+      "quote": "🍀Your vision will become clear only when you can look into your own heart.Who looks outside, dreams; who looks inside, awakens.🍀"
+    },
+    {
+      "author": "Louisa May Alcott",
+      "quote": "🍀I am not afraid of storms, for I am learning how to sail my ship.Every difficulty teaches courage and strength.🍀"
+    },
+    {
+      "author": "Herman Hesse",
+      "quote": "🍀Some of us think holding on makes us strong,but sometimes it is letting go.Release what weighs heavy on your soul.🍀"
+    },
+    {
+      "author": "Emily Dickinson",
+      "quote": "🪻Forever is composed of nows.Cherish the small moments, for they Build the story of your life.Let gratitude guide your days,And love light every step you take.🪻"
+    },
+    {
+      "author": "William Blake",
+      "quote": "🪻If the doors of perception were cleansed,Everything would appear to man as it is: infinite.Open your mind to wonder,And the world will reveal its hidden beauty In every leaf, in every ray of light.🪻"
+    },
+    {
+      "author": "Mary Shelley",
+      "quote": "🪻The beginning is always today.Do not fear the unknown,Step boldly into new adventures,Embrace change, and allow your courage To guide your every choice.🪻"
+    },
+    {
+      "author": "Rabindranath Tagore",
+      "quote": "💮You can’t cross the sea merely by standing and staring at the water.Take the first step with faith,Let your heart lead the way,And the journey will open doors You never imagined existed.💮"
+    },
+    {
+      "author": "Louise Glück",
+      "quote": "💮The sun rises each morning, a new promise.No matter how dark the night,Light will return,Hope will awaken,And your spirit will find its song again.💮"
+    },
+    {
+      "author": "Toni Morrison",
+      "quote": "💕If you want to fly, you have to give up the things that weigh you down.Release fear,Trust your instincts,And let your imagination soar To reach new heights of joy and freedom.💕"
+    },
+    {
+      "author": "Simone de Beauvoir",
+      "quote": "💕Change your life today.Do not gamble on the future,Act now,Break free from limiting thoughts,And become the person you are meant to be.💕"
+    },
+    {
+      "author": "Sylvia Plath",
+      "quote": "💕I took a deep breath and listened to the old brag of my heart:I am, I am, I am.Acknowledge your existence,Honor your emotions,And let your heart lead you forward.💕"
+    },
+    {
+      "author": "Albert Schweitzer",
+      "quote": "💝Success is not the key to happiness.Happiness is the key to success.If you love what you are doing,You will succeed naturally,And every day will feel meaningful.💝"
+    },
+    {
+      "author": "Anaïs Nin",
+      "quote": "💝And the day came when the risk to remain tight In a bud was more painful than the risk It took to blossom.Embrace your growth,And bloom fully into your life.💝"
     }
   ];
   void setQuotesFun() async {

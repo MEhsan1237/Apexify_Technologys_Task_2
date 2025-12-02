@@ -35,16 +35,18 @@ class _SplashScreenState extends State<SplashScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-             Image(image: AssetImage("assets/images/quote.jpg"),fit: BoxFit.cover,height: 190,width: 160,),
+              
+             Image(image: AssetImage("assets/images/quote.jpg"),fit: BoxFit.cover,height: 240,width: 180,),
+              SizedBox(height: 28,),
               Text(
                 "Find Your Daily Motivation",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 30,),
+              SizedBox(height: 50,),
               SpinKitThreeBounce(color: Colors.deepPurple,size: 20,)
             ],
           ),
